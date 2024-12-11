@@ -43,12 +43,13 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWD }}
     #Deploy the pushed image on Linode Server
-    - name: Deploy to EC2 instance
+    - name: Deploy to Linode instance
       uses: appleboy/ssh-action@v0.1.5
       with:
         host: 172.105.33.153
         username: root  # Change this if your server instance uses a different user
-        key: ${{ secrets.LINODE_SSH_PRIVATE_KEY }}
+        #key: ${{ secrets.LINODE_SSH_PRIVATE_KEY }}
+        password: Mithra!@2025
         script: |
           # Install Docker if it's not installed
           #if ! command -v docker &> /dev/null
