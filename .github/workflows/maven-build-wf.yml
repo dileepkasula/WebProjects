@@ -62,13 +62,13 @@ jobs:
           #fi
           
           # Pull the Docker image from Docker Hub
-          docker pull test-d-120824
+          docker pull s713278/test-d-120824:latest
           
           # Stop and remove any running container with the same name (optional)
           docker ps -q --filter "name=reactive-test-container" | grep -q . && docker stop reactive-test-container && docker rm reactive-test-container
           
           # Run the Docker container (use docker-compose if needed)
-          docker run -d --name reactive-test-container test-d-120824
+          docker run -d --name reactive-test-container s713278/test-d-120824:latest
 
     #- name: Set up SSH keys
     #  uses: shimataro/ssh-key-action@v2
