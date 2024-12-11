@@ -47,6 +47,7 @@ jobs:
       uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.LINODE_SSH_PRIVATE_KEY }}
+        name: id_rsa_key_1
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
     #- name: Login to Docker registry
@@ -63,5 +64,5 @@ jobs:
         docker pull ${{ secrets.DOCKER_USERNAME }}/test-d-120824:latest
         docker stop reactive-test-container || true
         docker rm reactive-test-container || true
-        docker run -d -p 8089:8089 --name reactive-test-container ${{ secrets.DOCKER_USERNAME }}/test-d-120824:latest
+        docker run -d -p 9090:9090 --name reactive-test-container ${{ secrets.DOCKER_USERNAME }}/test-d-120824:latest
         
